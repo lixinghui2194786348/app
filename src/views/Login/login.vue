@@ -49,7 +49,7 @@
 import { Button, Field, Cell, CellGroup, Popup, Form } from "vant";
 export default {
   data() {
-    return {
+    return {  
       imgSrc: require("@/imgs/login.jpg"),
       userName: "",
       passWord: "",
