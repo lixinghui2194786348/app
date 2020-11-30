@@ -1,5 +1,5 @@
  <template>
-  <div>
+  <div class="box">
     <div class="background">
       <img :src="imgSrc" width="100%" height="100%" alt="" />
     </div>
@@ -15,7 +15,9 @@
           clearable
         ></van-field>
         <div>
-          <van-button type="primary" size="small" class="btn">登陆</van-button>
+          <van-button type="primary" size="small" class="btn" @click="Login"
+            >登陆</van-button
+          >
           <van-button type="info" size="small" class="btn" @click="showPopup"
             >注册</van-button
           >
@@ -46,10 +48,11 @@
 </template>
 
 <script>
-import { Button, Field, Cell, CellGroup, Popup, Form } from "vant";
+import Logins from "@/assets/Login.json";
+import { Button, Field, Cell, CellGroup, Popup, Form, Loading } from "vant";
 export default {
   data() {
-    return {  
+    return {
       imgSrc: require("@/imgs/login.jpg"),
       userName: "",
       passWord: "",
@@ -64,18 +67,30 @@ export default {
     [Cell.name]: Cell,
     [CellGroup.name]: CellGroup,
     [Popup.name]: Popup,
-    [Form.name]: Form
+    [Form.name]: Form,
+    [Loading.name]: Loading
   },
   methods: {
     showPopup() {
       this.show = true;
     },
     onSubmit(values) {
-      console.log('submit', values);
+      console.log("submit", values);
     },
-    submit(){
-        console.log(this.username,this.password)
+    submit() {
+      console.log(this.username, this.password);
     },
+    Login() {
+      console.log(this.userName, this.passWord);
+      // for(let i = 0;i<Logins.data.data.length;i++){
+      //   // console.log(Logins.data.data[i])
+      //   if(this.userName===Logins.data.data[i].userName){
+      //     if(this.passWord===Logins.data.data[i].userName.passWord){
+
+      //     }
+      //   }
+      // }
+    }
   }
 };
 </script>
@@ -83,28 +98,33 @@ export default {
 <style scoped>
 .background {
   width: 100%;
-  height: 100%; /**宽高100%是为了图片铺满屏幕 */
+  height: 100%;
   z-index: -1;
   position: absolute;
-  /* opacity: 0.7; */
 }
 .Login {
   width: 80%;
   height: 50px;
   position: absolute;
   text-align: center;
+  padding: none;
   top: calc(50% - 100px);
   left: calc(50% - 40%);
 }
 .content {
   opacity: 0.7;
 }
+.box{
+  width:100%;
+  height: 100%;
+  overflow: hidden;
+}
 .btn {
   width: 80px;
   border-radius: 5%;
 }
-.btn1{
-    margin-top: 5%;
-    margin-bottom: 5%;
+.btn1 {
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 </style>

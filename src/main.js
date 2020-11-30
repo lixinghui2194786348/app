@@ -3,7 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-
+// import Vue from 'vue'
+import requests from './assets/axios'   // 记得改为你的路径
+Vue.prototype.axios = requests  // 此处命名为rq,你可以改
 // Vue.use(Button,Field)
 Vue.config.productionTip = false
 /* eslint-disable no-new */
