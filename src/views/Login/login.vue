@@ -9,7 +9,7 @@
         <van-field v-model="userName" label="用户名" clearable></van-field>
         <!-- 输入密码 -->
         <van-field
-          v-model="password"
+          v-model="passWord"
           type="password"
           label="密码"
           clearable
@@ -22,7 +22,7 @@
         </div>
       </van-cell-group>
     </div>
-    <van-popup v-model="show" position="bottom" :style="{ height: '100%' }">
+    <van-popup v-model="show" position="bottom" :style="{ height: '80%' }">
       <van-form @submit="onSubmit">
         <van-field
           v-model="username"
@@ -39,9 +39,6 @@
           <van-button round block type="info" class="btn1" @click="submit">
             提交
           </van-button>
-          <van-button round block type="warning" @click="err(value, rule)">
-            重置
-          </van-button>
         </div>
       </van-form>
     </van-popup>
@@ -55,7 +52,7 @@ export default {
     return {
       imgSrc: require("@/imgs/login.jpg"),
       userName: "",
-      password: "",
+      passWord: "",
       username: "",
       password: "",
       show: false
@@ -79,9 +76,6 @@ export default {
     submit(){
         console.log(this.username,this.password)
     },
-    err(value, rule){
-        console.log(value)
-    }
   }
 };
 </script>
