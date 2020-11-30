@@ -1,5 +1,6 @@
  <template>
   <div>
+    <h1>11111</h1>
     <div class="background">
       <img :src="imgSrc" width="100%" height="100%" alt="" />
     </div>
